@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<body>
+    <input placeholder="Type uid here" name="uid" type="text">
+    <br />
+    <button onclick="getOrder()"> Send </button>
+    <br />
+    <p id="order"></p>
+</body>
+
+
+<script>
+
+    const button = document.querySelector('button');
+    const input = document.querySelector('input');
+
+    async function getOrder() {
+
+        response = await fetch('http://localhost:8000/?uid=' + input.value)
+
+        document.getElementById("order").innerHTML = await response.text();
+    }
+
+
+</script>
+
+</html>
